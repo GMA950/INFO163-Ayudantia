@@ -1,0 +1,76 @@
+Pascal-FC post-mortem report on barbero
+- Interpreter Version jc-0.9.40
+
+Abnormal halt in process barbershopowner with pc = 6
+Reason:   deadlock
+
+
+----------
+Main program
+
+Status:  awaiting process termination
+
+
+----------
+Process barbershopowner
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+customerswaiting (semaphore)
+
+
+----------
+Process customers[1]
+
+Status:  terminated
+
+
+----------
+Process customers[2]
+
+Status:  terminated
+
+
+----------
+Process customers[3]
+
+Status:  terminated
+
+
+----------
+Process customers[4]
+
+Status:  terminated
+
+
+----------
+Process customers[5]
+
+Status:  terminated
+
+
+----------
+Process customers[6]
+
+Status:  terminated
+
+
+----------
+Process customers[7]
+
+Status:  terminated
+
+
+
+==========
+Global variables
+
+n = 0
+i = 7
+wrseats = 5
+customerswaiting = 0
+availablewaitingroomseats = 1
+barberready = 0

@@ -1,0 +1,52 @@
+program deadlock;
+
+const limit=4;
+var
+    item: integer;
+    a,b,c: semaphore;
+
+process type procesoUno(i : integer);
+begin
+    wait(a);
+    sleep(100);
+    write('Proceso Uno numero: ',i);
+    item:=item+1;
+    writeln('item: ',item);
+    sleep(100);
+    signal(a);
+        
+end;
+
+process type procesoDos(i : integer);
+begin
+    signal(a);
+    sleep(100);
+    write('Proceso Dos numero: ',i);
+    item:=item-1;
+    writeln('item: ',item);
+    sleep(100);
+    wait(a);
+end;
+
+var
+    x,i : integer;
+    proc: array [1..10] of procesoUno;
+    proc2: array [1..10] of procesoDos;
+
+begin
+    Randomize;
+    x:=Random(200);
+    item:=0;
+    writeln('Comienzan procesos: ');
+    sleep(x);
+    cobegin;
+        for i := 1 to 10 do
+        begin
+            proc[i](i);
+            writeln('_');
+            proc2[i](i);
+            writeln('_');
+        end;        
+    coend;
+    writeln('Finalizan procesos');
+end.

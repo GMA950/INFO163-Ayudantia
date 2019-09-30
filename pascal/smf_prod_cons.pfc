@@ -1,0 +1,70 @@
+program smf_prod_cons;
+
+type contenedor = array [0..4] of integer;
+
+var
+    buffer: contenedor;
+    vacio: semaphore;
+    elementos: semaphore;
+    x: integer;
+    listos: integer;
+
+process type productor;
+var
+    posicionP, i: integer;
+
+begin
+    while true do 
+    begin
+        wait(vacio);
+        if buffer[posicionP] < 4 then
+        begin
+            buffer[posicionP] := Random(4) + 1;
+            writeln('productor repuso producto en estante ',posicionP);
+        end else begin
+            writeln('productor no repuso producto en estante ', posicionP);
+        end;
+        posicionP := (posicionP + 1) mod 4;
+        signal(elementos);
+    end;
+end;
+
+process type consumidor;
+var
+    posicionC, i, listo: integer;
+
+begin
+    listo := 0;
+    while listo<>1 do 
+    begin
+        posicionC:=0;
+        wait(elementos);
+        if buffer[posicionC] > 0 then
+        begin
+            buffer[posicionC] := buffer[posicionC] - 1;
+            writeln('consumidor saco producto en estante ',posicionC);
+            listo:= Random(4);
+            if listo=1 then
+                listos:= listos + 1;
+        end else begin
+            writeln('consumidor no encontro producto en estante ', posicionC);
+        end;
+        posicionC := (posicionC + 1) mod 4;
+        signal(vacio);
+    end;
+end;
+
+var
+    prc: productor;
+    cons: array [1..5] of consumidor;
+
+begin
+    Randomize;
+    initial(vacio,0);
+    initial(elementos,4);
+    cobegin
+        prc;
+        for x:=1 to 5 do 
+            cons[x];
+    coend;
+end.

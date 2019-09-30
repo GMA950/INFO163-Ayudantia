@@ -1,0 +1,29 @@
+program procedure_example;
+
+var 
+    x,y,z : integer;
+(*procedure nombre(dato:tipo)*)
+procedure suma(x,y: integer);
+
+var k: integer;
+
+begin
+    z:= x + y;
+    k:=x;
+    writeln('Suma de ',x,' y ',y,' es ',z);
+    x:=10;
+    writeln(k);
+end;
+
+begin
+    x:=8;
+    y:=6;
+    suma(x,y);
+    suma(x,y);
+    x:=5;
+    suma(x,y);
+    suma(3,2);
+    writeln('Ingrese dos numeros: ');
+    readln(x,y);
+    suma(x,y);
+end.

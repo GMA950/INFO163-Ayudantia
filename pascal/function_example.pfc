@@ -1,0 +1,19 @@
+program function_example;
+
+var x,y: integer;
+
+function ejemplo(x,y: integer):integer;
+
+var z : integer;
+
+begin
+    ejemplo:=x+y
+end;
+
+begin
+    x:=4;
+    y:=5;
+    writeln(x,' ',y);
+    x:=ejemplo(x,y);
+    writeln(x);
+end.

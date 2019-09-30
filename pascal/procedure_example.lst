@@ -1,0 +1,172 @@
+- Pascal-FC for IBM PC compatibles - 
+- Compiler Version jc-0.9.40
+
+G L Davies  &  A Burns, University of Bradford
+J C Coppens, Universidad Católica de Córdoba
+
+Compiler listing
+
+    1     0 program procedure_example;
+    2     0 
+    3     0 var 
+    4     0     x,y,z : integer;
+    5     0     k: double;
+***********             ^ 0 
+    6     0     a: string;
+***********             ^ 0 
+    7     0     s: semaphore;
+    8     0 (*procedure nombre(dato:tipo)*)
+    9     0 procedure suma(x,y: integer);
+   10     0 
+   11     0 var k: integer;
+   12     0 
+   13     0 begin
+   14     0     z:= x + y;
+   15     5     k:=x;
+   16     8     writeln('Suma de ',x,' y ',y,' es ',z);
+   17    21     x:=10;
+   18    24     writeln(k);
+   19    27 end;
+   20    28 
+   21    28 procedure dos_tipos(x,y: integer; l: double);
+***********                                           ^ 0 
+   22    28 
+   23    28 begin
+   24    28     writeln('Sus numeros eran ',x,' y ',y,', y su double es ',l);
+   25    41 end;
+   26    42 
+   27    42 begin
+   28    42     x:=8;
+   29    45     y:=6;
+   30    48     suma(x,y);
+   31    52     suma(x,y);
+   32    56     x:=5;
+   33    59     suma(x,y);
+   34    63     suma(3,2);
+   35    67     writeln('Ingrese dos numeros: ');
+   36    70     readln(x,y);
+   37    75     suma(x,y);
+   38    79     writeln('Ingrese un double: ');
+   39    82     readln(k);
+   40    85     dos_tipos(x,y,k);
+   41    90 end.
+
+Error codes found
+
+  Error 0: undeclared identifier
+
+
+Symbol table
+
+     link   object      type          ref  normal  lvl  adr  aux  name
+
+ 56    55   procedure   notyp           2    TRUE    0   42    0  _main
+ 57     0   variable    synch           0    TRUE    1    5    0  any
+ 58    57   variable    integer         0    TRUE    1    5    0  x
+ 59    58   variable    integer         0    TRUE    1    6    0  y
+ 60    59   variable    integer         0    TRUE    1    7    0  z
+ 61    60   variable    notyp           0    TRUE    1    8    0  k
+ 62    61   variable    notyp           0    TRUE    1    8    0  a
+ 63    62   variable    semaphore       0    TRUE    1    8    0  s
+ 64    63   procedure   notyp           3    TRUE    1    0    0  suma
+ 65     0   variable    integer         0    TRUE    2    5    0  x
+ 66    65   variable    integer         0    TRUE    2    6    0  y
+ 67    66   variable    integer         0    TRUE    2    7    0  k
+ 68    64   procedure   notyp           4    TRUE    1   28    0  dos_tipos
+ 69     0   variable    integer         0    TRUE    2    5    0  x
+ 70    69   variable    integer         0    TRUE    2    6    0  y
+ 71    70   variable    integer         0    TRUE    2    7    0  l
+
+Generated P-code
+
+    0     ldadr        1         7 ; 13
+    1     ldval.i      2         5 ; 14
+    2     ldval.i      2         6 ; 14
+    3     add  .i      0         0 ; 14
+    4     store.i      0         0 ; 14
+    5     ldadr        2         7 ; 14
+    6     ldval.i      2         5 ; 15
+    7     store.i      0         0 ; 15
+    8     ldcon.i      0         8 ; 16
+    9     wrstr        0         0 ; 16
+   10     ldval.i      2         5 ; 16
+   11     wrval.i      0         0 ; 16
+   12     ldcon.i      0         3 ; 16
+   13     wrstr        0         8 ; 16
+   14     ldval.i      2         6 ; 16
+   15     wrval.i      0         0 ; 16
+   16     ldcon.i      0         4 ; 16
+   17     wrstr        0        11 ; 16
+   18     ldval.i      1         7 ; 16
+   19     wrval.i      0         0 ; 16
+   20     wrlin        0         0 ; 16
+   21     ldadr        2         5 ; 16
+   22     ldcon.i      0        10 ; 17
+   23     store.i      0         0 ; 17
+   24     ldval.i      2         7 ; 18
+   25     wrval.i      0         0 ; 18
+   26     wrlin        0         0 ; 18
+   27     rproc        0         0 ; 18
+   28     ldcon.i      0        17 ; 24
+   29     wrstr        0        15 ; 24
+   30     ldval.i      2         5 ; 24
+   31     wrval.i      0         0 ; 24
+   32     ldcon.i      0         3 ; 24
+   33     wrstr        0        32 ; 24
+   34     ldval.i      2         6 ; 24
+   35     wrval.i      0         0 ; 24
+   36     ldcon.i      0        17 ; 24
+   37     wrstr        0        35 ; 24
+   38     ldval.i      2         7 ; 24
+   39     wrval.i      0         0 ; 24
+   40     wrlin        0         0 ; 24
+   41     rproc        0         0 ; 24
+   42     ldadr        1         5 ; 27
+   43     ldcon.i      0         8 ; 28
+   44     store.i      0         0 ; 28
+   45     ldadr        1         6 ; 28
+   46     ldcon.i      0         6 ; 29
+   47     store.i      0         0 ; 29
+   48     mrkst        0        64 ; 29
+   49     ldval.i      1         5 ; 30
+   50     ldval.i      1         6 ; 30
+   51     calls        0         6 ; 30
+   52     mrkst        0        64 ; 30
+   53     ldval.i      1         5 ; 31
+   54     ldval.i      1         6 ; 31
+   55     calls        0         6 ; 31
+   56     ldadr        1         5 ; 31
+   57     ldcon.i      0         5 ; 32
+   58     store.i      0         0 ; 32
+   59     mrkst        0        64 ; 32
+   60     ldval.i      1         5 ; 33
+   61     ldval.i      1         6 ; 33
+   62     calls        0         6 ; 33
+   63     mrkst        0        64 ; 33
+   64     ldcon.i      0         3 ; 34
+   65     ldcon.i      0         2 ; 34
+   66     calls        0         6 ; 34
+   67     ldcon.i      0        21 ; 35
+   68     wrstr        0        52 ; 35
+   69     wrlin        0         0 ; 35
+   70     ldadr        1         5 ; 36
+   71     redip.i      0         0 ; 36
+   72     ldadr        1         6 ; 36
+   73     redip.i      0         0 ; 36
+   74     rdlin        0         0 ; 36
+   75     mrkst        0        64 ; 36
+   76     ldval.i      1         5 ; 37
+   77     ldval.i      1         6 ; 37
+   78     calls        0         6 ; 37
+   79     ldcon.i      0        19 ; 38
+   80     wrstr        0        73 ; 38
+   81     wrlin        0         0 ; 38
+   82     ldadr        1         8 ; 39
+   83     redip        0         0 ; 39
+   84     rdlin        0         0 ; 39
+   85     mrkst        0        68 ; 39
+   86     ldval.i      1         5 ; 40
+   87     ldval.i      1         6 ; 40
+   88     ldval        1         8 ; 40
+   89     calls        0         7 ; 40
+   90     stop         0         0 ; 40

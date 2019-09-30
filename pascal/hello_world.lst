@@ -1,0 +1,28 @@
+- Pascal-FC for IBM PC compatibles - 
+- Compiler Version jc-0.9.40
+
+G L Davies  &  A Burns, University of Bradford
+J C Coppens, Universidad Católica de Córdoba
+
+Compiler listing
+
+    1     0 program hello_world;
+    2     0 
+    3     0 begin
+    4     0     writeln('Hola mundo');
+    5     3 end.
+
+
+Symbol table
+
+     link   object      type          ref  normal  lvl  adr  aux  name
+
+ 56    55   procedure   notyp           2    TRUE    0    0    0  _main
+ 57     0   variable    synch           0    TRUE    1    5    0  any
+
+Generated P-code
+
+    0     ldcon.i      0        10 ; 4
+    1     wrstr        0         0 ; 4
+    2     wrlin        0         0 ; 4
+    3     stop         0         0 ; 4

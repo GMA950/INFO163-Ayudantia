@@ -1,0 +1,74 @@
+program mnt_prod_cons;
+
+monitor prodcons;
+export actuaProductor, actuaConsumidor;
+
+type contenedor= array [0..4] of integer;
+
+var
+    colocar,sacar: condition;
+    buffer: contenedor;
+    ncons: integer;
+
+procedure actuaProductor(pos: integer);
+begin
+    if buffer[pos]=4 then delay(colocar);
+    buffer[pos]:= (Random(4) + 1) mod 4;
+    writeln('Productor coloco objetos en estante ',pos);
+    sleep(10);
+    resume(sacar);
+end;
+
+procedure actuaConsumidor(pos,i: integer);
+begin
+    if buffer[pos]>0 then
+    begin
+        resume(colocar);
+        delay(sacar);
+        buffer[pos]:= buffer[pos] -1;
+        writeln('Consumidor ',i,' saco elemento');
+        sleep(10);
+    end else begin
+        writeln('Consumidor ',i,' no encontro lo que buscaba y se va');
+        sleep(10);
+        resume(colocar);
+    end;
+end;
+
+begin
+    ncons:=0;
+end;
+
+process type procProd;
+var pos: integer;
+begin
+    pos:=0;
+    repeat
+        prodcons.actuaProductor(pos);
+        pos:=(Random(4) + 1) mod 4;
+    forever;
+end;
+
+process type procCons(i: integer);
+var pos: integer;
+begin
+    pos:=0;
+    repeat
+        prodcons.actuaConsumidor(pos,i);
+        pos:=(Random(4) + 1) mod 4;
+    forever;
+end;
+
+var
+    prd: procProd;
+    cns: array [1..10] of procCons;
+    i: integer;
+
+begin
+    Randomize;
+    cobegin;
+        prd;
+        for i := 1 to 10 do
+            cns[i](i);
+    coend;
+end.

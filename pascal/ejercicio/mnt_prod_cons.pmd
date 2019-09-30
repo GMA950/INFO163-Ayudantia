@@ -1,0 +1,135 @@
+Pascal-FC post-mortem report on mnt_prod_cons
+- Interpreter Version jc-0.9.40
+
+Abnormal halt in process cns[5] with pc = 52
+Reason:   statement limit of 2000000 reached (possible livelock)
+
+
+----------
+Main program
+
+Status:  awaiting process termination
+
+
+----------
+Process prd
+
+Status:  active
+pc = 26
+
+Process suspended on:
+
+prodconsprodcons (monitor high-priority queue)
+
+
+----------
+Process cns[1]
+
+Status:  active
+pc = 101
+
+Process suspended on:
+
+prodcons (monitor boundary queue)
+
+
+----------
+Process cns[2]
+
+Status:  active
+pc = 101
+
+Process suspended on:
+
+prodcons (monitor boundary queue)
+
+
+----------
+Process cns[3]
+
+Status:  active
+pc = 101
+
+Process suspended on:
+
+prodcons (monitor boundary queue)
+
+
+----------
+Process cns[4]
+
+Status:  active
+pc = 36
+
+Process suspended on:
+
+prodcons.sacar (condition)
+
+
+----------
+Process cns[5]
+
+Status:  active
+pc = 52
+
+
+----------
+Process cns[6]
+
+Status:  active
+pc = 36
+
+Process suspended on:
+
+prodcons.sacar (condition)
+
+
+----------
+Process cns[7]
+
+Status:  active
+pc = 36
+
+Process suspended on:
+
+prodcons.sacar (condition)
+
+
+----------
+Process cns[8]
+
+Status:  active
+pc = 36
+
+Process suspended on:
+
+prodcons.sacar (condition)
+
+
+----------
+Process cns[9]
+
+Status:  active
+pc = 36
+
+Process suspended on:
+
+prodcons.sacar (condition)
+
+
+----------
+Process cns[10]
+
+Status:  active
+pc = 101
+
+Process suspended on:
+
+prodcons (monitor boundary queue)
+
+
+
+==========
+Global variables
+
+i = 10

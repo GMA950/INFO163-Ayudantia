@@ -1,0 +1,209 @@
+Pascal-FC post-mortem report on mnt_barbero
+- Interpreter Version jc-0.9.40
+
+Abnormal halt in process brb with pc = 6
+Reason:   deadlock
+
+
+----------
+Main program
+
+Status:  awaiting process termination
+
+
+----------
+Process brb
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+barberia.silla (condition)
+
+
+----------
+Process clt[1]
+
+Status:  terminated
+
+
+----------
+Process clt[2]
+
+Status:  terminated
+
+
+----------
+Process clt[3]
+
+Status:  terminated
+
+
+----------
+Process clt[4]
+
+Status:  terminated
+
+
+----------
+Process clt[5]
+
+Status:  terminated
+
+
+----------
+Process clt[6]
+
+Status:  terminated
+
+
+----------
+Process clt[7]
+
+Status:  terminated
+
+
+----------
+Process clt[8]
+
+Status:  terminated
+
+
+----------
+Process clt[9]
+
+Status:  terminated
+
+
+----------
+Process clt[10]
+
+Status:  terminated
+
+
+----------
+Process clt[11]
+
+Status:  terminated
+
+
+----------
+Process clt[12]
+
+Status:  terminated
+
+
+----------
+Process clt[13]
+
+Status:  terminated
+
+
+----------
+Process clt[14]
+
+Status:  terminated
+
+
+----------
+Process clt[15]
+
+Status:  terminated
+
+
+----------
+Process clt[16]
+
+Status:  terminated
+
+
+----------
+Process clt[17]
+
+Status:  terminated
+
+
+----------
+Process clt[18]
+
+Status:  terminated
+
+
+----------
+Process clt[19]
+
+Status:  terminated
+
+
+----------
+Process clt[20]
+
+Status:  terminated
+
+
+----------
+Process clt[21]
+
+Status:  terminated
+
+
+----------
+Process clt[22]
+
+Status:  terminated
+
+
+----------
+Process clt[23]
+
+Status:  terminated
+
+
+----------
+Process clt[24]
+
+Status:  terminated
+
+
+----------
+Process clt[25]
+
+Status:  terminated
+
+
+----------
+Process clt[26]
+
+Status:  terminated
+
+
+----------
+Process clt[27]
+
+Status:  terminated
+
+
+----------
+Process clt[28]
+
+Status:  terminated
+
+
+----------
+Process clt[29]
+
+Status:  terminated
+
+
+----------
+Process clt[30]
+
+Status:  terminated
+
+
+
+==========
+Global variables
+
+i = 30

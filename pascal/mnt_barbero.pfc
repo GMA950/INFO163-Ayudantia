@@ -1,0 +1,74 @@
+program mnt_barbero;
+
+monitor barberia;
+export operaBarbero, salaDeSillas;
+
+var
+    silla, espera: condition;
+    nClienteMax: integer;
+    ncliente: integer;
+    atendidos:integer;
+
+procedure operaBarbero;
+begin
+    {Barbero esperara clientes para trabajar}
+    if ncliente=0 then delay(silla);
+    writeln('Barbero atiende a cliente');
+    ncliente:= ncliente - 1;
+    sleep(10);
+    resume(espera);
+end;
+
+procedure salaDeSillas(i: integer);
+begin
+    if nClienteMax > ncliente then
+    begin
+        {Si ha asientos de espera disponible, el cliente se sentara a esperar que lo atiendan}
+        ncliente:= ncliente + 1;
+        writeln('Llega cliente ',i,' y se sienta a esperar');
+        resume(silla);
+        delay(espera);
+        sleep(10);
+        writeln('Cliente ',i,' atendido se va');
+    end else begin
+        {Si no hay asientos el cliente se ira y volvera en otro momento}
+        writeln('Esta lleno y cliente ',i,' se va.');
+        sleep(10);
+        resume(silla);
+    end; 
+end;
+
+begin
+    nClienteMax:=10;
+    ncliente:=0;
+end;
+
+process type initBarbero;
+begin
+    repeat
+        barberia.operaBarbero;
+    forever;
+end;
+
+process type initSillas(i: integer);
+var control:integer;
+begin
+    repeat
+        barberia.salaDeSillas(i);
+        control:=Random(3);
+    until control=1;
+end;
+
+var
+    brb: initBarbero;
+    clt: array [1..30] of initSillas;
+    i: integer;
+
+begin
+    Randomize;
+    cobegin;
+        brb;
+        for i := 1 to 30 do
+            clt[i](i);
+    coend;
+end.

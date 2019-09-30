@@ -1,0 +1,174 @@
+- Pascal-FC for IBM PC compatibles - 
+- Compiler Version jc-0.9.40
+
+G L Davies  &  A Burns, University of Bradford
+J C Coppens, Universidad Católica de Córdoba
+
+Compiler listing
+
+    1     0 program deadlock;
+    2     0 
+    3     0 const limit=4;
+    4     0 var
+    5     0     item: integer;
+    6     0     a,b,c: semaphore;
+    7     0 
+    8     0 process type procesoUno(i : integer);
+    9     0 begin
+   10     0     wait(a);
+   11     2     sleep(100);
+   12     4     write('Proceso Uno numero: ',i);
+   13     8     item:=item+1;
+   14    13     writeln('item: ',item);
+   15    18     sleep(100);
+   16    20     signal(a);
+   17    22         
+   18    22 end;
+   19    23 
+   20    23 process type procesoDos(i : integer);
+   21    23 begin
+   22    23     signal(a);
+   23    25     sleep(100);
+   24    27     write('Proceso Dos numero: ',i);
+   25    31     item:=item-1;
+   26    36     writeln('item: ',item);
+   27    41     sleep(100);
+   28    43     wait(a);
+   29    45 end;
+   30    46 
+   31    46 var
+   32    46     x,i : integer;
+   33    46     proc: array [1..10] of procesoUno;
+   34    46     proc2: array [1..10] of procesoDos;
+   35    46 
+   36    46 begin
+   37    46     Randomize;
+   38    47     x:=Random(200);
+   39    51     item:=0;
+   40    54     writeln('Comienzan procesos: ');
+   41    57     sleep(x);
+   42    59     cobegin;
+   43    60         for i := 1 to 10 do
+   44    64         begin
+   45    64             proc[i](i);
+   46    71             writeln('_');
+   47    74             proc2[i](i);
+   48    81             writeln('_');
+   49    84         end;        
+   50    85     coend;
+   51    86     writeln('Finalizan procesos');
+   52    89 end.
+
+
+Symbol table
+
+     link   object      type          ref  normal  lvl  adr  aux  name
+
+ 56    55   procedure   notyp           2    TRUE    0   46    0  _main
+ 57     0   variable    synch           0    TRUE    1    5    0  any
+ 58    57   constant    integer         0   FALSE    1    4    0  limit
+ 59    58   variable    integer         0    TRUE    1    5    0  item
+ 60    59   variable    semaphore       0    TRUE    1    6    0  a
+ 61    60   variable    semaphore       0    TRUE    1    7    0  b
+ 62    61   variable    semaphore       0    TRUE    1    8    0  c
+ 63    62   type id     process         3    TRUE    1    0    0  procesouno
+ 64     0   variable    integer         0    TRUE    2    5    0  i
+ 65    63   type id     process         4    TRUE    1   23    0  procesodos
+ 66     0   variable    integer         0    TRUE    2    5    0  i
+ 67    65   variable    integer         0    TRUE    1    9    0  x
+ 68    67   variable    integer         0    TRUE    1   10    0  i
+ 69    68   variable    array           1    TRUE    1   11    0  proc
+ 70    69   variable    array           2    TRUE    1   21    0  proc2
+
+Generated P-code
+
+    0     ldadr        1         6 ; 10
+    1     wait         0         0 ; 10
+    2     ldcon.i      0       100 ; 11
+    3     sleap        0         0 ; 11
+    4     ldcon.i      0        20 ; 12
+    5     wrstr        0         0 ; 12
+    6     ldval.i      2         5 ; 12
+    7     wrval.i      0         0 ; 12
+    8     ldadr        1         5 ; 12
+    9     ldval.i      1         5 ; 13
+   10     ldcon.i      0         1 ; 13
+   11     add  .i      0         0 ; 13
+   12     store.i      0         0 ; 13
+   13     ldcon.i      0         6 ; 14
+   14     wrstr        0        20 ; 14
+   15     ldval.i      1         5 ; 14
+   16     wrval.i      0         0 ; 14
+   17     wrlin        0         0 ; 14
+   18     ldcon.i      0       100 ; 15
+   19     sleap        0         0 ; 15
+   20     ldadr        1         6 ; 16
+   21     signl        0         0 ; 16
+   22     rproc        1         0 ; 16
+   23     ldadr        1         6 ; 22
+   24     signl        0         0 ; 22
+   25     ldcon.i      0       100 ; 23
+   26     sleap        0         0 ; 23
+   27     ldcon.i      0        20 ; 24
+   28     wrstr        0        26 ; 24
+   29     ldval.i      2         5 ; 24
+   30     wrval.i      0         0 ; 24
+   31     ldadr        1         5 ; 24
+   32     ldval.i      1         5 ; 25
+   33     ldcon.i      0         1 ; 25
+   34     sub  .i      0         0 ; 25
+   35     store.i      0         0 ; 25
+   36     ldcon.i      0         6 ; 26
+   37     wrstr        0        46 ; 26
+   38     ldval.i      1         5 ; 26
+   39     wrval.i      0         0 ; 26
+   40     wrlin        0         0 ; 26
+   41     ldcon.i      0       100 ; 27
+   42     sleap        0         0 ; 27
+   43     ldadr        1         6 ; 28
+   44     wait         0         0 ; 28
+   45     rproc        1         0 ; 28
+   46     rndmiz        0         0 ; 36
+   47     ldadr        1         9 ; 37
+   48     ldcon.i      0       200 ; 38
+   49     stfun.i      0        19 ; 38
+   50     store.i      0         0 ; 38
+   51     ldadr        1         5 ; 38
+   52     ldcon.i      0         0 ; 39
+   53     store.i      0         0 ; 39
+   54     ldcon.i      0        20 ; 40
+   55     wrstr        0        52 ; 40
+   56     wrlin        0         0 ; 40
+   57     ldval.i      1         9 ; 41
+   58     sleap        0         0 ; 41
+   59     cobeg        0         0 ; 41
+   60     ldadr        1        10 ; 42
+   61     ldcon.i      0         1 ; 43
+   62     ldcon.i      0        10 ; 43
+   63     for1u.i      0        85 ; 43
+   64     mrkst        1        63 ; 44
+   65     ldadr        1        11 ; 44
+   66     ldval.i      1        10 ; 45
+   67     ixary.i      0         1 ; 45
+   68     procv        0         0 ; 45
+   69     ldval.i      1        10 ; 45
+   70     calls        1         5 ; 45
+   71     ldcon.c      0        95 ; 46
+   72     wrval.c      0         0 ; 46
+   73     wrlin        0         0 ; 46
+   74     mrkst        1        65 ; 46
+   75     ldadr        1        21 ; 46
+   76     ldval.i      1        10 ; 47
+   77     ixary.i      0         2 ; 47
+   78     procv        0         0 ; 47
+   79     ldval.i      1        10 ; 47
+   80     calls        1         5 ; 47
+   81     ldcon.c      0        95 ; 48
+   82     wrval.c      0         0 ; 48
+   83     wrlin        0         0 ; 48
+   84     for2u.i      0        64 ; 48
+   85     coend        0         0 ; 49
+   86     ldcon.i      0        18 ; 51
+   87     wrstr        0        72 ; 51
+   88     wrlin        0         0 ; 51
+   89     stop         0         0 ; 51

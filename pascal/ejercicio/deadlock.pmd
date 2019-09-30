@@ -1,0 +1,243 @@
+Pascal-FC post-mortem report on deadlock
+- Interpreter Version jc-0.9.40
+
+Abnormal halt in process proc2[10] with pc = 22
+Reason:   deadlock
+
+
+----------
+Main program
+
+Status:  awaiting process termination
+
+
+----------
+Process proc[1]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[1]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[2]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[2]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[3]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[3]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[4]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[4]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[5]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[5]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[6]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[6]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[7]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[7]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[8]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[8]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[9]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[9]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc[10]
+
+Status:  active
+pc = 2
+
+Process suspended on:
+
+a (semaphore)
+
+
+----------
+Process proc2[10]
+
+Status:  active
+pc = 22
+
+Process suspended on:
+
+a (semaphore)
+
+
+
+==========
+Global variables
+
+i = 10
+x = 162
+c = 0
+b = 0
+a = 0
+item = 0
