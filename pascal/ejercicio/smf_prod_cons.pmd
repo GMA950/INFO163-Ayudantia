@@ -1,7 +1,7 @@
 Pascal-FC post-mortem report on smf_prod_cons
 - Interpreter Version jc-0.9.40
 
-Abnormal halt on termination of process cons[1]
+Abnormal halt in process prc with pc = 4
 Reason:   deadlock
 
 

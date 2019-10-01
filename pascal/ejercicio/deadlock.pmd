@@ -1,7 +1,7 @@
 Pascal-FC post-mortem report on deadlock
 - Interpreter Version jc-0.9.40
 
-Abnormal halt in process proc2[10] with pc = 22
+Abnormal halt in process proc2[9] with pc = 22
 Reason:   deadlock
 
 
@@ -15,7 +15,7 @@ Status:  awaiting process termination
 Process proc[1]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -37,7 +37,7 @@ a (semaphore)
 Process proc[2]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -59,7 +59,7 @@ a (semaphore)
 Process proc[3]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -81,7 +81,7 @@ a (semaphore)
 Process proc[4]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -103,7 +103,7 @@ a (semaphore)
 Process proc[5]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -125,7 +125,7 @@ a (semaphore)
 Process proc[6]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -147,7 +147,7 @@ a (semaphore)
 Process proc[7]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -169,7 +169,7 @@ a (semaphore)
 Process proc[8]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -191,7 +191,7 @@ a (semaphore)
 Process proc[9]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -213,7 +213,7 @@ a (semaphore)
 Process proc[10]
 
 Status:  active
-pc = 2
+pc = 6
 
 Process suspended on:
 
@@ -236,7 +236,7 @@ a (semaphore)
 Global variables
 
 i = 10
-x = 162
+x = 78
 c = 0
 b = 0
 a = 0

@@ -12,7 +12,6 @@ var
 process type productor;
 var
     posicionP, i: integer;
-
 begin
     while true do 
     begin

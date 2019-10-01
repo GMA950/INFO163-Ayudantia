@@ -1,7 +1,7 @@
 Pascal-FC post-mortem report on barbero
 - Interpreter Version jc-0.9.40
 
-Abnormal halt in process barbershopowner with pc = 6
+Abnormal halt on termination of process customers[6]
 Reason:   deadlock
 
 
