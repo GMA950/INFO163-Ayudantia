@@ -1,0 +1,77 @@
+program smp_filosofos;
+{termina en deadlock aproposito para que no corra infinitamente}
+var
+    listoComer, sillaParaFilosofo, filosofoSeSienta : semaphore;
+    sillasMesa: integer;
+
+process type usarTenedor;
+begin
+    while true do
+    begin
+        sleep(10);
+        wait(filosofoSeSienta);
+        wait(sillaParaFilosofo);
+        sillasMesa:= sillasMesa +1;
+        signal(listoComer);
+        signal(sillaParaFilosofo);
+        writeln('Filosofo se va a servir');
+        sleep(10);
+
+    end;
+    
+end;
+    
+process type filosofo;
+var satisfecho: integer;
+begin
+    satisfecho:=0;
+    while satisfecho<>1 do
+    begin
+        sleep(10);
+        wait(sillaParaFilosofo);
+        if sillasMesa > 0 then
+            begin
+                writeln('Llega filosofo y se sienta');
+                sillasMesa:= sillasMesa - 1;
+                signal(filosofoSeSienta);
+                signal(sillaParaFilosofo);
+                writeln('Filosofo se va sentar en silla');
+                wait(listoComer);
+                writeln('Filosofo esta comiendo');
+                sleep(10);
+                writeln('Filosofo termino de comer y se va');
+                satisfecho:=1;
+                sleep(10);
+            end
+        else begin
+                signal(sillaParaFilosofo);
+                writeln('Filosofo no encontro asiento esperara');
+                sleep(10);
+            end;
+    end;
+end;
+
+var
+    fil : array [1..15] of filosofo;
+    tnd : array [1..5] of usarTenedor;
+    i,n : integer;        
+
+begin
+    Randomize;
+    sillasMesa:=5;
+    initial(listoComer,0);
+    initial(sillaParaFilosofo,1);
+    initial(filosofoSeSienta,0);
+
+    cobegin;
+        for i := 1 to 15 do
+            begin
+                if i < 6 then
+                    tnd[i];
+                fil[i];
+            end;
+            
+    coend;
+
+end.
+

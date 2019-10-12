@@ -1,0 +1,168 @@
+Pascal-FC post-mortem report on smp_filosofos
+- Interpreter Version jc-0.9.40
+
+Abnormal halt in process tnd[2] with pc = 6
+Reason:   deadlock
+
+
+----------
+Main program
+
+Status:  awaiting process termination
+
+
+----------
+Process tnd[1]
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+filosofosesienta (semaphore)
+
+
+----------
+Process fil[1]
+
+Status:  terminated
+
+
+----------
+Process tnd[2]
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+filosofosesienta (semaphore)
+
+
+----------
+Process fil[2]
+
+Status:  terminated
+
+
+----------
+Process tnd[3]
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+filosofosesienta (semaphore)
+
+
+----------
+Process fil[3]
+
+Status:  terminated
+
+
+----------
+Process tnd[4]
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+filosofosesienta (semaphore)
+
+
+----------
+Process fil[4]
+
+Status:  terminated
+
+
+----------
+Process tnd[5]
+
+Status:  active
+pc = 6
+
+Process suspended on:
+
+filosofosesienta (semaphore)
+
+
+----------
+Process fil[5]
+
+Status:  terminated
+
+
+----------
+Process fil[6]
+
+Status:  terminated
+
+
+----------
+Process fil[7]
+
+Status:  terminated
+
+
+----------
+Process fil[8]
+
+Status:  terminated
+
+
+----------
+Process fil[9]
+
+Status:  terminated
+
+
+----------
+Process fil[10]
+
+Status:  terminated
+
+
+----------
+Process fil[11]
+
+Status:  terminated
+
+
+----------
+Process fil[12]
+
+Status:  terminated
+
+
+----------
+Process fil[13]
+
+Status:  terminated
+
+
+----------
+Process fil[14]
+
+Status:  terminated
+
+
+----------
+Process fil[15]
+
+Status:  terminated
+
+
+
+==========
+Global variables
+
+n = 0
+i = 15
+sillasmesa = 5
+filosofosesienta = 0
+sillaparafilosofo = 1
+listocomer = 0
