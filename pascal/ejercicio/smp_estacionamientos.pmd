@@ -1,0 +1,243 @@
+Pascal-FC post-mortem report on smp_estacionamientos
+- Interpreter Version jc-0.9.40
+
+Abnormal halt on termination of process conductores[2]
+Reason:   deadlock
+
+
+----------
+Main program
+
+Status:  awaiting process termination
+
+
+----------
+Process garitaentrada[1]
+
+Status:  active
+pc = 10
+
+Process suspended on:
+
+entraauto (semaphore)
+
+
+----------
+Process garitasalida[1]
+
+Status:  terminated
+
+
+----------
+Process conductores[1]
+
+Status:  terminated
+
+
+----------
+Process garitaentrada[2]
+
+Status:  active
+pc = 10
+
+Process suspended on:
+
+entraauto (semaphore)
+
+
+----------
+Process garitasalida[2]
+
+Status:  active
+pc = 24
+
+Process suspended on:
+
+saleauto (semaphore)
+
+
+----------
+Process conductores[2]
+
+Status:  terminated
+
+
+----------
+Process conductores[3]
+
+Status:  terminated
+
+
+----------
+Process conductores[4]
+
+Status:  terminated
+
+
+----------
+Process conductores[5]
+
+Status:  terminated
+
+
+----------
+Process conductores[6]
+
+Status:  terminated
+
+
+----------
+Process conductores[7]
+
+Status:  terminated
+
+
+----------
+Process conductores[8]
+
+Status:  terminated
+
+
+----------
+Process conductores[9]
+
+Status:  terminated
+
+
+----------
+Process conductores[10]
+
+Status:  terminated
+
+
+----------
+Process conductores[11]
+
+Status:  terminated
+
+
+----------
+Process conductores[12]
+
+Status:  terminated
+
+
+----------
+Process conductores[13]
+
+Status:  terminated
+
+
+----------
+Process conductores[14]
+
+Status:  terminated
+
+
+----------
+Process conductores[15]
+
+Status:  terminated
+
+
+----------
+Process conductores[16]
+
+Status:  terminated
+
+
+----------
+Process conductores[17]
+
+Status:  terminated
+
+
+----------
+Process conductores[18]
+
+Status:  terminated
+
+
+----------
+Process conductores[19]
+
+Status:  terminated
+
+
+----------
+Process conductores[20]
+
+Status:  terminated
+
+
+----------
+Process conductores[21]
+
+Status:  terminated
+
+
+----------
+Process conductores[22]
+
+Status:  terminated
+
+
+----------
+Process conductores[23]
+
+Status:  terminated
+
+
+----------
+Process conductores[24]
+
+Status:  terminated
+
+
+----------
+Process conductores[25]
+
+Status:  terminated
+
+
+----------
+Process conductores[26]
+
+Status:  terminated
+
+
+----------
+Process conductores[27]
+
+Status:  terminated
+
+
+----------
+Process conductores[28]
+
+Status:  terminated
+
+
+----------
+Process conductores[29]
+
+Status:  terminated
+
+
+----------
+Process conductores[30]
+
+Status:  terminated
+
+
+
+==========
+Global variables
+
+i = 30
+autosoperando = 30
+espaciosdisp = 46
+saleauto = 0
+entraauto = 0
+salidaocupada = 0
+entradaocupada = 0

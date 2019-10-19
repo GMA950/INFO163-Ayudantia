@@ -1,0 +1,82 @@
+program smp_estacionamientos;
+{propuesta de solución al problema de los estacionamientos.
+Se tiene un estacionamiento donde pueden haber mas de una entrada
+y salida, con una cantidad limitada de espacios. Se debe hacer un 
+programa que coordine las entradas y salidas del lugar de manera
+ que se tenga constancia de la cantidad de espacio, además, tanto 
+entradas como las salidad funcionan de manera concurrente}
+var
+    entradaOcupada,salidaOcupada,entraAuto,saleAuto: semaphore;
+    espaciosDisp: integer;
+    autosOperando: integer;
+
+process type entrada;
+begin
+    while true do 
+        begin
+            wait(entraAuto);
+            signal(entradaOcupada);
+        end;    
+end;
+
+process type salida;
+begin
+    while true do 
+        begin
+            wait(saleAuto);
+            signal(salidaOcupada);
+        end;
+end;
+
+process type vehiculo;
+var 
+    salio: integer;
+begin
+    salio:=0;
+    while salio <> 1 do 
+    begin
+        sleep(10);
+        if espaciosDisp > 0 then
+        begin
+            espaciosDisp:= espaciosDisp - 1;
+            signal(entraAuto);
+            wait(entradaOcupada);
+            sleep(Random(600) + 1);
+            signal(saleAuto);
+            wait(salidaOcupada);
+            espaciosDisp:= espaciosDisp + 1;
+            salio:=1;
+        end
+        else begin
+            sleep(10);
+        end; 
+    end;
+end;
+
+var
+    garitaEntrada: array [1..2] of entrada;
+    garitaSalida: array [1..2] of salida;
+    conductores: array [1..30] of vehiculo;
+    i:integer;
+
+begin
+    Randomize;
+    espaciosDisp:= 20;
+    autosOperando:=0;
+    initial(entraAuto,0);
+    initial(saleAuto,0);
+    initial(entradaOcupada,0);
+    initial(salidaOcupada,0);
+
+    cobegin;
+        for i := 1 to 30 do
+        begin
+            if i < 3 then
+                begin
+                    garitaEntrada[i];
+                    garitaSalida[i];
+                end;
+            conductores[i];
+        end;    
+    coend;
+end.
