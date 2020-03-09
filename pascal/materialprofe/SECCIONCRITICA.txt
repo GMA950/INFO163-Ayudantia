@@ -1,0 +1,36 @@
+program SECCIONCRITICA;
+var
+	count: integer;
+	mutex: semaphore;
+
+process PROCESOUNO;
+var
+	i: integer;
+begin
+	for i := 1 to 20 do
+	begin
+		wait(mutex);
+			count := count + 1;
+		signal(mutex)
+	end
+end; 
+process PROCESODOS;
+var
+	i: integer;
+begin
+	for i := 1 to 20 do
+	begin
+		wait(mutex);
+			count := count - 1;
+		signal(mutex)
+	end
+end; 
+
+begin
+	count := 0;
+		initial(mutex,1);
+	cobegin
+		PROCESOUNO;PROCESODOS
+	coend;
+		writeln('Total count: ',count)
+end.

@@ -1,0 +1,68 @@
+
+
+
+El problemas de la Cafetería de la UACH.
+
+El Encargado de la cafetería de la UACh le ha solicitado que regule con semáforo el acceso de los estudiantes
+a las mesas del comedor. Cuando un estudiante llega a la cafetería , lo que hace en buscar una silla libre.
+Si  no encuentra una libre se va; si localiza una silla libre, la reserva poniendo su mochila en la silla.
+Una vez que ha reservado la silla, se va a buscar una bandeja. Si no hay bandejas libres, esperará haciendo
+cola hasta queliberen bandejas.Si hay bandejas libres, se podrá a la cola para que le sirvan la comida.
+El número de silla que hay en el comedor es 14 y el número de bandejas es 16.
+
+
+program Cafeteria;
+var
+exclusion:semaphore;
+bandejas:semaphore;
+cocinero:semaphore;
+llega_estudiante:semaphore;
+sillaslibres:integer;
+i: integer;
+process type estudiante;
+begin
+      wait(exclusion);
+      if(sillaslibres > 0) then
+      begin
+           sillaslibres := sillaslibres -1;
+           signal(exclusion);
+           wait(bandejas);
+           signal(llega_estudiante);
+           wait(cocinero);
+           
+           estudiante_almorzando();
+           wait(exclusion);
+                 sillaslibres := sillaslibres+1;
+           signal(exclusion);
+           signal(bandejas);
+       end
+       else
+       begin
+            signal(exclusion);
+       end;
+end;
+var
+est: array[1..20] of estudiante;
+
+process cheff;
+begin
+  repeat
+     wait(alumno);
+         Atiende_estudiante();
+     signal(cocinero);
+   forever;
+ end;
+begin
+        initial(exclusion,1);
+        initial(bandejas, 16);
+        initial(cocinero, 1);
+        initial(llega_estuduiante, 0);
+
+    cobegin
+           cheff;
+           for i := 1 to 20 do
+                     est[i];
+    coend;        
+end.
+
+

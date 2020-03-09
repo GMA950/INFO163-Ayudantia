@@ -1,0 +1,100 @@
+program MVxM;
+
+(*programa que multiplica un vector por una matriz*)
+(*comienza el bloque de especificación del programa *)
+
+const n = 5; {Variable Dimensión Matriz y Vector}
+type Matrix = array[1..n,1..n] of integer;
+type Vector = array[1..n] of integer;
+
+var A:Matrix;
+var B:Vector;
+var R:Vector;
+
+(*se define un tipo proceso (template, plantilla) para múltiplicar el vector por la matriz *)
+
+process type Proceso(li:integer);
+var i:integer;
+var j:integer;
+begin
+      for j:=1 to n do
+      begin
+         R[li]:= R[li] + B[j]* A[j][li]; 
+      end;
+  end;
+
+(* se declara un vector de procesos de tamaño 5 *)
+
+var P:array[1..5] of Proceso;
+var k:integer;
+var l:integer;
+
+(*Genera matriz NxN *)
+
+procedure initMatrix(var A:Matrix);
+begin
+   for k:=1 to n do
+   begin
+      for l:=1 to n do
+      begin
+         A[k][l]:=random(4);
+      end;
+   end;
+end;
+
+(*Genera vector N *)
+procedure initVector(var B:Vector);
+begin
+   for k:=1 to n do
+   begin
+      B[k]:=random(4);
+   end;
+end;
+
+(*Imprime matriz en pantalla*)
+procedure printMatrix(var A:Matrix);
+begin
+   for k:=1 to n do
+   begin
+      for l:=1 to n do
+      begin
+         write(A[k][l],' ');
+      end;
+      writeln(' ');
+   end;
+end;
+
+(*Imprime Vector*)
+procedure printVector(var B:Vector);
+begin
+   for k:=1 to n do
+   begin
+      writeln(B[k]);
+   end;
+end;
+
+(* comienza la parte ejecutable del programa *)
+begin
+   writeln('Matriz A:');
+   initMatrix(A);
+   printMatrix(A);
+   writeln(' ');
+   
+   writeln('Vector B:');
+   initVector(B);
+   printVector(B);
+   writeln(' ');
+   
+   writeln('Vector de Resultado:');
+   (*se lanzan los procesos en paralelo *)
+   cobegin	
+   		P[1](1);
+   		P[2](2);
+   		P[3](3);
+   		P[4](4);
+   		P[5](5);
+   coend;   
+   printVector(R);
+   writeln(' ');
+
+end.

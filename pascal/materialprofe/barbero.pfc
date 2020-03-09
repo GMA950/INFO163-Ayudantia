@@ -1,0 +1,61 @@
+
+Problema del barbero
+Un barbero atiende cliente que llegan a su barberia de forma aleatoria. La barberia tiene capacidad para 10 cliente,
+si un cliente llega y no encuentra una silla se va.
+ 
+
+program BDormilon;
+var
+mutex : semaphore;
+sillabarbero : semaphore;
+haycliente : semaphore;
+afeitado : semaphore;
+numcliente: integer;
+i: integer;
+
+process type cliente;
+begin
+	wait(mutex);
+	if(numcliente < 10) then
+	begin
+		numclientes := numclientes + 1 ;
+	signal(mutex);
+		wait(sillabarbero);(* esperando silla barbero libre *)
+	          writeln('sentandose en silla barbero');
+		signal(haycliente;(* avisa a barbero que hay cliente*)
+		wait(afeitado);     (* afeitandose *)
+    		signal(sillabarbero);   (* se levanta silla barbero *)
+    	wait(mutex);
+        	numcliente := numclientes - 1;
+     	signal(mutex);
+     end
+     else 
+     begin
+            	signal(mutex);  (*  salir sin afeitar *)
+     end
+end;
+var
+cl : array[1..10 ] of cliente;
+ 
+process barbero;
+begin
+       repeat
+		wait(haycliente);   (* dormido esperando cliente *)
+		      writeln('afeitando');
+                signal(afeitado);
+       forever;
+end;
+             
+begin
+      initial(mutex,1);
+      initial(sillabarbero,1);
+      initial(haycliente,0);
+      initial(afeitado,0);
+      
+      cobegin
+                   barbero;
+                   for i:= 1 to 10 do
+                       cl[i];
+       coend
+
+end.

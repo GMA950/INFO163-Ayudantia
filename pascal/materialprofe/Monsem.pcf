@@ -1,0 +1,56 @@
+- Pascal-FC for IBM PC compatibles - 
+- GNU Compiler Version P5.2
+
+G L Davies  &  A Burns, University of York
+
+Compiler listing
+
+    1     0 program semMon;
+    2     0 monitor Semaforo;
+    3     0  export wait, signal, initial;
+    4     0  var value: integer; 
+    5     0  bloqueados: condition;
+    6     0 
+    7     0  procedure initial(v:integer);
+    8     0  begin 
+    9     0       value := v; 
+   10     3  end;
+   11     4 
+   12     4  procedure wait; 
+   13     4  begin               
+   14     4   if (value=0) then 
+   15     8                     delay(bloqueados); 
+   16    10    value:= value-1;  
+   17    15  end;
+   18    16 
+   19    16  procedure signal;
+   20    16              begin
+   21    16                  value:= value+1;
+   22    21                  resume(Bloqueados);
+   23    23              end;
+   24    24 begin
+   25    25  value := 1; (* Por defecto semáforo abierto *)
+   26    28 end;
+   27    29 
+   28    29 process T1;
+   29    29 begin
+   30    29         semaforo.wait;
+   31    34            writeln('T1');
+   32    37         semaforo.signal;
+   33    42 end;
+   34    43 process T2;
+   35    43 begin
+   36    43         semaforo.wait;
+   37    48          writeln('T2');
+   38    51         semaforo.signal;
+   39    56 end;
+   40    57        
+   41    57 begin
+   42    58            semaforo.initial(1);
+   43    64            cobegin
+   44    65                     T1;T2;
+   45    73            coend;
+   46    74            readln;
+   47    75            
+   48    75 end.
+
