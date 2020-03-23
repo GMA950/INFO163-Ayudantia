@@ -1,0 +1,31 @@
+V "GNAT Lib v9"
+P ZX
+
+RN
+RV NO_SELECT_STATEMENTS
+RV NO_TASKING
+RV NO_TERMINATE_ALTERNATIVES
+RV SPARK_05
+RV MAX_SELECT_ALTERNATIVES=3
+RV MAX_TASK_ENTRIES=2
+
+U semaforos%b		semaforos.adb		b841044e NE OO PK GE
+
+U semaforos%s		semaforos.ads		07c193cd BN EE NE OO PK GE IL
+
+D semaforos.ads		20200303153919 07c193cd semaforos%s
+D semaforos.adb		20200303153641 bf809783 semaforos%b
+D system.ads		20200312165510 4635ec04 system%s
+X 1 semaforos.ads
+2i3 ValorInicial{natural} 2|11r19
+3k10*semaforos 2z3 8E13 12l5 12e14 2|1b14 26l5 26t14
+4T8*TSemaforo 5r31 6r33 11l7 11e16 2|2r31 6r33 10b13 25l7 25t16
+5U13*Wait 5=19 2|2b13 5l10 5t14
+5t19 Sem{4T8} 2|2b19 4r7
+6U13*Signal 6=21 2|6b13 9l10 9t16
+6t21 Sem{4T8} 2|6b21 8r7
+9Y11 Wait 2|4s11 16b18
+10Y11 Signal 2|8s11 19b16
+X 2 semaforos.adb
+11i5 S{natural} 15r14 17m11 17r16 20m9 20r14
+

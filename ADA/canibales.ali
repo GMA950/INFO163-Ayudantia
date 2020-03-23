@@ -1,0 +1,188 @@
+V "GNAT Lib v9"
+M P W=b
+P ZX
+
+RN
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_TERMINATE_ALTERNATIVES
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV SPARK_05
+RV MAX_SELECT_ALTERNATIVES=3
+RV MAX_TASK_ENTRIES=2
+RV MAX_TASKS=1+
+
+U canibales%b		canibales.adb		88f1bc27 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+W ada.numerics.float_random%s  a-nuflra.adb	a-nuflra.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+Z ada.text_io.integer_io%s
+Z interfaces%s		interfac.ads		interfac.ali
+W semaforos%s		semaforos.adb		semaforos.ali
+W system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20200312165510 76789da1 ada%s
+D a-calend.ads		20200312165510 b288ede8 ada.calendar%s
+D a-caldel.ads		20200312165510 9f20b83d ada.calendar.delays%s
+D a-except.ads		20200312165510 291912d5 ada.exceptions%s
+D a-finali.ads		20200312165510 bf4f806b ada.finalization%s
+D a-ioexce.ads		20200312165510 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20200312165510 bb51c45a ada.numerics%s
+D a-nudira.ads		20200312165510 71e55def ada.numerics.discrete_random%s
+D a-nudira.adb		20200312165510 72908cdb ada.numerics.discrete_random%b
+D a-nuflra.ads		20200312165510 4056ab7a ada.numerics.float_random%s
+D a-reatim.ads		20200312165510 0240fc73 ada.real_time%s
+D a-retide.ads		20200312165510 081cdaa4 ada.real_time.delays%s
+D a-stream.ads		20200312165510 119b8fb3 ada.streams%s
+D a-tags.ads		20200312165510 491b781d ada.tags%s
+D a-textio.ads		20200312165510 881db35a ada.text_io%s
+D a-tiinau.ads		20200312165510 8114c8e4 ada.text_io.integer_aux%s
+D a-tiinio.ads		20200312165510 aa04e5d6 ada.text_io.integer_io%s
+D a-tiinio.adb		20200312165510 df9cd7af ada.text_io.integer_io%b
+D a-unccon.ads		20200312165510 0e9b276f ada.unchecked_conversion%s
+D canibales.adb		20200304040154 34de9656 canibales%b
+D interfac.ads		20200312165510 5ab55268 interfaces%s
+D i-c.ads		20200312165510 5421119b interfaces.c%s
+D i-cstrea.ads		20200312165510 e53d8b8e interfaces.c_streams%s
+D semaforos.ads		20200303153919 07c193cd semaforos%s
+D semaforos.adb		20200303153641 bf809783 semaforos%b
+D system.ads		20200312165510 4635ec04 system%s
+D s-atacco.ads		20200312165510 4c36d12f system.address_to_access_conversions%s
+D s-crtl.ads		20200312165510 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200312165510 54135002 system.exception_table%s
+D s-ficobl.ads		20200312165510 078245e4 system.file_control_block%s
+D s-finroo.ads		20200312165510 4ff27390 system.finalization_root%s
+D s-imgint.ads		20200312165510 02dbe0c2 system.img_int%s
+D s-imguns.ads		20200312165510 9ff43cf7 system.img_uns%s
+D s-linux.ads		20200312165510 ed0b8aee system.linux%s
+D s-multip.ads		20200312165510 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20200312165510 0b994636 system.os_constants%s
+D s-osinte.ads		20200312165510 710cf8c6 system.os_interface%s
+D s-parame.ads		20200312165510 48ec542b system.parameters%s
+D s-rannum.ads		20200312165510 99ade2f2 system.random_numbers%s
+D s-rannum.adb		20200312165510 20ba1217 system.random_numbers%b
+D s-ransee.ads		20200312165510 01a57b33 system.random_seed%s
+D s-secsta.ads		20200312165510 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20200312165510 a7318a92 system.soft_links%s
+D s-stache.ads		20200312165510 a37c21ec system.stack_checking%s
+D s-stausa.ads		20200312165510 017a0a05 system.stack_usage%s
+D s-stalib.ads		20200312165510 09bd3940 system.standard_library%s
+D s-stoele.ads		20200312165510 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20200312165510 2b3f8252 system.task_info%s
+D s-taspri.ads		20200312165510 f40ac08d system.task_primitives%s
+D s-taprop.ads		20200312165510 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20200312165510 b9d612e2 system.tasking%s
+D s-taprob.ads		20200312165510 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20200312165510 60ad3dae system.tasking.protected_objects.entries%s
+D s-tasren.ads		20200312165510 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20200312165510 cca55c94 system.tasking.stages%s
+D s-traent.ads		20200312165510 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200312165510 34867c83 system.unsigned_types%s
+D s-valuns.ads		20200312165510 10a8ed3b system.val_uns%s
+D s-wchcon.ads		20200312165510 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 20|1r6 1r23 2r6 3r6 4r6 11r31 18r9 28r29 30r30 56r19 63r5
+X 7 a-numeri.ads
+16K13*Numerics 32e17 20|2r10 3r10 11r35 56r23 63r9
+X 8 a-nudira.ads
+44k22*Discrete_Random 75e33 20|2w19 11r44
+50R9 Generator<39|63R9> 20|15r8[11]
+52V13 Random{integer} 20|71s11[11] 97s19[11]
+X 9 a-nudira.adb
+53V16 Random[39|83]{integer} 40|392b13[20|11]
+X 10 a-nuflra.ads
+41K22*Float_Random 74e30 20|3w19 56r32 63r18
+47R9*Generator<39|63R9> 20|56r45
+53U14*Reset<39|100p14> 20|63s31
+X 11 a-reatim.ads
+39K13*Real_Time 185e18 20|4w10 18r13
+49O9*Time<duration> 20|20r16
+54O9*Time_Span<duration> 20|19r23
+61V13*Clock{49O9} 20|20s24
+119V13*Milliseconds{54O9} 20|19s36
+X 15 a-textio.ads
+49K13*Text_IO 471e16 20|1w10 1r27 28r33 30r34
+166U14*New_Line 20|86s9 94s9
+242U14*Put 20|50s13 50s49 84s9 89s9
+263U14*Put_Line 20|70s5 80s9 112s5
+X 17 a-tiinio.ads
+46k21*Integer_IO 85e27 20|28r41 30r42
+66U14 Put 20|50s35[28] 85s9[30] 93s9[30]
+X 20 canibales.adb
+8U11*canibales 8b11 113l5 113t14
+10I13 rangerand{integer} 11r60
+11K13 Random_Gen[8|44] 13r9
+15r5 G{8|50R9[11]} 71r18 97r26
+19o5 periodo{11|54O9}
+20o5 Next_time{11|49O9} 79r21
+21i5 c{integer}
+22N5 Num_Canibales 25r36
+23N5 Num_Comidas 26r35
+25I10 Num_Canibal<short_short_integer> 28r53 40r37 43r30 46r17 65r34
+26I10 Num_Comida<short_short_integer> 30r54 37r31 58r22
+28K13 CanibNum[17|46] 29r9
+30K13 ComidaNum[17|46] 31r9
+33K13 Semaforos_Init[24|3] 35r9
+37a5 Semaforos_Comida(24|4T8[33]) 81m14 81r14 90m17 90r17
+39T15 Canibal 41l9 41e16 43r46 45b15 105l5 105t12
+40Y15 Comenzar 40>25 65b12 67l9 67t17 110s29
+40i25 Tu_Num{25I10} 66r19 110r39
+43a5 Lista_Canibales(39T15) 109r14 110r9
+46i9 Mi_Num{25I10} 50r40 66m9
+48U19 Pon_Num 48b19 51l13 51t20 69s5 83s9
+53o9 Tiempo_Comiendo{duration} 88r15
+54o9 Comio_Apurado{duration}
+55o9 Factor_Tiempo{duration}
+56r9 Azar_Gen{10|47R9} 63r37
+58i9 Actual{26I10} 73m9 73r19 75r12 81r31 85r14 90r34 93r13 96r21 99m17 99r27
+58i17 act{26I10} 75m5 96r15
+59i9 var{integer} 71m5 72r17 97m13 98r25
+65i22 Tu_Num{25I10}
+72i9 i{integer}
+98i17 i{integer}
+109i9 I<short_short_integer> 110r26 110r49
+X 21 interfac.ads
+74M9*Unsigned_32
+77M9*Unsigned_64
+X 24 semaforos.ads
+2i3 ValorInicial{natural} 20|34r20
+3k10*semaforos 20|6w6 34r9 24|12e14
+4T8 TSemaforo 20|37r46[33]
+5U13 Wait 20|81s9[33]
+6U13 Signal 20|90s9[33]
+X 39 s-rannum.ads
+75V13*Random{21|74M9} 40|221i21
+76V13*Random{21|77M9} 40|221i21
+X 45 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+

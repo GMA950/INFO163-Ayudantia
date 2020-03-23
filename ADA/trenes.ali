@@ -1,0 +1,158 @@
+V "GNAT Lib v9"
+M P W=b
+P ZX
+
+RN
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_TERMINATE_ALTERNATIVES
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLICIT_LOOPS
+RV SPARK_05
+RV MAX_SELECT_ALTERNATIVES=3
+RV MAX_TASK_ENTRIES=2
+RV MAX_TASKS=1+
+
+U trenes%b		trenes.adb		659a4bf8 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.float_random%s  a-nuflra.adb	a-nuflra.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+Z ada.text_io.integer_io%s
+Z interfaces%s		interfac.ads		interfac.ali
+W semaforos%s		semaforos.adb		semaforos.ali
+Z system%s		system.ads		system.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20200205132932 76789da1 ada%s
+D a-except.ads		20200205132932 291912d5 ada.exceptions%s
+D a-finali.ads		20200205132932 bf4f806b ada.finalization%s
+D a-ioexce.ads		20200205132932 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20200205132932 bb51c45a ada.numerics%s
+D a-nuflra.ads		20200205132932 4056ab7a ada.numerics.float_random%s
+D a-reatim.ads		20200205132932 0240fc73 ada.real_time%s
+D a-retide.ads		20200205132932 081cdaa4 ada.real_time.delays%s
+D a-stream.ads		20200205132932 119b8fb3 ada.streams%s
+D a-tags.ads		20200205132932 491b781d ada.tags%s
+D a-textio.ads		20200205132932 881db35a ada.text_io%s
+D a-tiinau.ads		20200205132932 8114c8e4 ada.text_io.integer_aux%s
+D a-tiinio.ads		20200205132932 aa04e5d6 ada.text_io.integer_io%s
+D a-tiinio.adb		20200205132932 df9cd7af ada.text_io.integer_io%b
+D a-unccon.ads		20200205132932 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20200205132932 5ab55268 interfaces%s
+D i-c.ads		20200205132932 5421119b interfaces.c%s
+D i-cstrea.ads		20200205132932 e53d8b8e interfaces.c_streams%s
+D semaforos.ads		20200303153919 07c193cd semaforos%s
+D semaforos.adb		20200303153641 bf809783 semaforos%b
+D system.ads		20200205132932 4635ec04 system%s
+D s-atacco.ads		20200205132932 4c36d12f system.address_to_access_conversions%s
+D s-crtl.ads		20200205132932 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200205132932 54135002 system.exception_table%s
+D s-ficobl.ads		20200205132932 078245e4 system.file_control_block%s
+D s-finroo.ads		20200205132932 4ff27390 system.finalization_root%s
+D s-imgint.ads		20200205132932 02dbe0c2 system.img_int%s
+D s-linux.ads		20200205132932 ed0b8aee system.linux%s
+D s-multip.ads		20200205132932 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20200205132932 0b994636 system.os_constants%s
+D s-osinte.ads		20200205132932 710cf8c6 system.os_interface%s
+D s-parame.ads		20200205132932 48ec542b system.parameters%s
+D s-rannum.ads		20200205132932 99ade2f2 system.random_numbers%s
+D s-secsta.ads		20200205132932 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20200205132932 a7318a92 system.soft_links%s
+D s-stache.ads		20200205132932 a37c21ec system.stack_checking%s
+D s-stausa.ads		20200205132932 017a0a05 system.stack_usage%s
+D s-stalib.ads		20200205132932 09bd3940 system.standard_library%s
+D s-stoele.ads		20200205132932 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20200205132932 2b3f8252 system.task_info%s
+D s-taspri.ads		20200205132932 f40ac08d system.task_primitives%s
+D s-taprop.ads		20200205132932 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20200205132932 b9d612e2 system.tasking%s
+D s-taprob.ads		20200205132932 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20200205132932 60ad3dae system.tasking.protected_objects.entries%s
+D s-tasren.ads		20200205132932 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20200205132932 cca55c94 system.tasking.stages%s
+D s-traent.ads		20200205132932 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200205132932 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20200205132932 1b7d22d2 system.wch_con%s
+D trenes.adb		20200303153643 a8503c66 trenes%b
+X 1 ada.ads
+16K9*Ada 20e8 51|1r6 1r23 2r6 3r6 9r8 19r35 21r31 48r17 53r7
+X 5 a-numeri.ads
+16K13*Numerics 32e17 51|2r10 48r21 53r11
+X 6 a-nuflra.ads
+41K22*Float_Random 74e30 51|2w19 48r30 53r20
+47R9*Generator<33|63R9> 51|48r43
+53U14*Reset<33|100p14> 51|53s33
+X 7 a-reatim.ads
+39K13*Real_Time 185e18 51|3w10 9r12
+49O9*Time<duration> 51|11r15
+54O9*Time_Span<duration> 51|10r22
+61V13*Clock{49O9} 51|11s21
+65V14*"+"{49O9} 51|83s31
+119V13*Milliseconds{54O9} 51|10s33
+X 11 a-textio.ads
+49K13*Text_IO 471e16 51|1w10 1r27 19r39 21r35
+166U14*New_Line 51|65s65 80s10
+242U14*Put 51|42s10 42s44 65s22 78s10
+263U14*Put_Line 51|60s7 84s10
+X 13 a-tiinio.ads
+46k21*Integer_IO 85e27 51|19r47 21r43
+66U14 Put 51|42s30[21] 65s51[19] 79s10[19]
+X 19 semaforos.ads
+2i3 ValorInicial{natural} 51|25r17
+3k10*semaforos 12e14 51|5w6 25r6
+4T8 TSemaforo 51|28r51[24]
+5U13 Wait 51|75s10[24]
+6U13 Signal 51|82s10[24]
+X 37 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 51 trenes.adb
+7U11*trenes 7b11 97l5 97t11
+10o4 periodo{7|54O9} 83r33
+11o4 Next_time{7|49O9} 67r22 83m10 83r21
+12i4 c{integer} 86m10 86r14
+13N4 Num_Estaciones 16r36 69r22
+14N4 Num_Trenes 17r32
+16I9 Num_Estacion<short_short_integer> 19r59 28r34 50r26
+17I9 Num_Tren<short_short_integer> 21r55 31r35 34r26 38r15 55r36
+19K12 Num_Estacion_IO[13|46] 20r8
+21K12 Num_Tren_IO[13|46] 22r8
+24K12 Semaforos_Inicial_1[19|3] 26r8
+28a4 Semaforos_Estaciones(19|4T8[24]) 75m16 75r16 82m18 82r18
+30T14 Tren 32l8 32e12 34r39 36b14 88l8 88t12
+31Y13 Comenzar 31>23 55b14 57l11 57t19 94s24
+31i23 Tu_Num{17I9} 56r20 94r34
+34a4 Lista_Trenes(30T14) 93r13 94r7
+38i7 Mi_Num{17I9} 42r35 56m10
+40U17 Pon_Nombre 40b17 43l11 43t21 59s7 65s10 77s10
+45o7 Espera_En_Estacion{duration}
+46o7 Duracion_Minima{duration}
+47o7 Factor_Duracion{duration}
+48r7 Azar_Gen{6|47R9} 53r40
+50i7 Actual{16I9} 61m7 65r56 69r13 72r26 82r40 85m10
+50i15 Siguiente{16I9} 70m13 72m13 75r38 79r15 85r20
+55i24 Tu_Num{17I9}
+93i8 I<short_short_integer> 94r21 94r44
+

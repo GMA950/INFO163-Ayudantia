@@ -1,0 +1,22 @@
+Para poder compilar los programas se requiere el complemento para compilador
+de C en sistemas Linux llamado Gnat.
+Para usuarios de Windows se recomienda usar el IDE entregado por el profe.
+
+Instalación:
+
+    Debian distros (Debian, Ubuntu y derivados, PureOS, Deepin, Zorin):
+        sudo apt update
+        sudo apt upgrade
+        sudo apt install gnat-4.4 -> ojo con la versión.
+
+        *Extra, gnat-gps -> IDE para ADA
+            sudo apt update
+            sudo apt upgrade
+            sudo apt install gnat-gps
+    
+    Arch distros (Arch, Manjaro):
+        sudo pacman -S gcc-ADA
+
+    
+
+
