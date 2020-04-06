@@ -3,22 +3,19 @@
 #include <stdlib.h>
 #include <math.h>
 #include <unistd.h>
+/*
+Secuencia de Fibonacci
+if n < 2 : n
+else:
+    n(i) = n(i-1) + n(i-2)
+*/
 
-#ifdef _OPENMP
-    #define TRUE 1
-    #define FALSE 0
-#else
-    #define omp_get_thread_num() 0
-    #define omp_get_num_threads() 1
-#endif
-
-long fibonacci(n)
+long fibonacci(int n)
 {
-    long fn1,fn2,fn;
+    long fn1,fn2,fn; //n(i) -> fn, n(i-1)-> fn1, n(i-2)->fn2
 
     usleep(1);
-
-    if(n == 0 || n == 1) return(fibonacci(n-1)+fibonacci(n-2));
+    if(n < 2) return n;
 
     #pragma omp task shared(fn1)
         fn1 = fibonacci(n-1);
@@ -35,20 +32,17 @@ long fibonacci(n)
 int main()
 {
     double tej;
-    int nthr = 0, n;
-    long result;
+    int nthr = 0; 
+    long result, n;
 
     printf("Inserte numero: ");
     scanf("%d",&n);
     printf("\n");
 
-    #pragma omp parallel shared(result)
+    #pragma omp parallel
     {
-        #pragma omp single
-        {
-            result = fibonacci(n);
-        }
+        result = fibonacci(n);
     }
 
-    printf("resultado: %dd",result);
+    printf("resultado: %ld",result);
 }

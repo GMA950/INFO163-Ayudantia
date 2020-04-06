@@ -2,38 +2,36 @@
 #include<stdio.h>
 #include<omp.h>
 
+void printVector(float *vector, int size){
+  for(int i = 0; i < size; ++i){
+    printf("%f ", vector[i]);
+  }
+  printf("\n\n");
+}
+
 int main() {        
-    const int TAM=10;
-    int i,j,k;
-    float matrix[TAM][TAM];
-    float vec[TAM];
-    float matrixR[TAM];
+    int TAM=10;
+    int i;
+    float vec1[TAM];
+    float vec2[TAM];
+    float result = 0;
+    float temp = 0;
       
     /* asignamos valores a las las matrices */
     for (i=0; i<TAM; i++) {
-        for (j=0; j<TAM; j++) {
-            matrix[i][j]=2.f;
-            matrixR[i]=3.f;
-            vec[i]=1.f;
-        }
+        vec1[i]=i%8;
+        vec2[i]=i%8+1;
     }
- 
-    #pragma omp parallel for schedule (static,4) private (i, j, k) 
-      for(i=0; i<TAM; i++) { 
-        for(j=0; j<TAM; j++) {   
-          for(k=0; k<TAM; k++){
-            matrixR[i] = matrixR[i] * vec[k] *  matrix[k][j];
-          } 
-        } 
-      } 
+
+    printVector(vec1, TAM);
+    printVector(vec2, TAM);
+
+    #pragma omp parallel for schedule(static,4) private (i) 
+      for(i=0; i<TAM; i++){
+            result += vec1[i] * vec2[i];
+      }
      
-    for (i=0; i<TAM; i++) {
-        for (j=0; j<TAM; j++) {
-            
-        }
-        printf("|%f|",matrixR[i]);
-        printf("\n");
-    }
+    printf("result: %f\n", result);
     
     return 0;
 }

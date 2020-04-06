@@ -30,7 +30,6 @@ int main() {
 
     for (i=0; i<TAM; i++) {
         for (j=0; j<TAM; j++) {
-            
             printf("|%f|",matrix3[i][j]);
         }
         printf("\n");

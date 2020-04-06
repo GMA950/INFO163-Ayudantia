@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-main()
+int main()
 {
 omp_lock_t C;
 

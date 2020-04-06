@@ -2,17 +2,19 @@
 #include <stdlib.h>
 #include <omp.h>
 
-static long num_steps = 1e9;
+long num_steps = 1e9;
 double time,time2;
 
 int main()
 {
 
-    
+    /*
+    Integración numerica con intervalo [0,1] de 4/(1+x²)dx
+    */
     printf("Start workshare parallel\n");
     double step,pi = 0.0,sum = 0.0;
     
-    step = 1.0/(double)num_steps;
+    step = 1.0/(double)num_steps; // x-> step
     time = omp_get_wtime();
     #pragma omp parallel 
     {
@@ -27,8 +29,7 @@ int main()
             }
             
         sum *= step;
-        #pragma omp critical
-            pi += sum;
+        pi += sum;
     }
     
     time2 = omp_get_wtime();
